@@ -1,10 +1,14 @@
 export default function taskBlock(trueOrFalse) {
-  var task = false;
+  const task = false;
   var task2 = true;
 
   if (trueOrFalse) {
-    task = true;
-    task2 = false;
+    // create a new function scope so these vars don't touch the outer ones
+    (function () {
+      var task  = true;
+      var task2 = false;
+      // you could return them if you wanted—but here we ignore them
+    })();
   }
 
   return [task, task2];
