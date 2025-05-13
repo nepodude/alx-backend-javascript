@@ -1,13 +1,15 @@
 export default function createIteratorObject(report) {
-  // Extract the department lists from the report
   const departments = Object.values(report.allEmployees);
-  
-  // Create and return a generator (iterator) that yields each employee
-  return (function* () {
+
+  // Named generator for iteration
+  function* iterator() {
     for (const employees of departments) {
       for (const name of employees) {
         yield name;
       }
     }
-  })();
+  }
+
+  // Invoke generator to return an iterator
+  return iterator();
 }
