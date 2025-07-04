@@ -2,7 +2,9 @@ process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.on('data', (data) => {
   const name = data.toString().trim();
-  console.log(`Your name is: ${name}`);
+  if (name) {
+    process.stdout.write(`Your name is: ${name}`);
+  }
 });
 
 // When input ends (e.g., piping or Ctrl+D)
